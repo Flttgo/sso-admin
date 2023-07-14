@@ -75,8 +75,8 @@ return [
 
         'redis' => [
             'driver' => 'redis',
-            'connection' => 'master-cluster',
-            'lock_connection' => 'master-cluster',
+            'connection' => 'default',
+            'lock_connection' => 'default',
         ],
 
         'dynamodb' => [

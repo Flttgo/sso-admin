@@ -8,9 +8,9 @@ class ConfigController extends Controller
     public function index()
     {
         return $this->success([
-            'risk_url' => config('app.risk_url'),
-            'dmp_url' => config('app.dmp_url'),
-            'job_url' => config('app.job_url'),
+            'test1_url' => config('app.test1_url'),
+            'test2_url' => config('app.test2_url'),
+            'test3_url' => config('app.test3_url'),
             'show_job' => user()->isSuperAdmin()
         ]);
     }

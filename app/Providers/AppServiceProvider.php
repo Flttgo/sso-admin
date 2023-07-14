@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        Auth::provider('custom', static function ($app, $config) {
-            return new CustomEloquentUserProvider($app['hash'], $config['model']);
-        });
+        // 用来自定义guard 认证驱动
+        //Auth::provider('custom', static function ($app, $config) {
+        //    return new CustomEloquentUserProvider($app['hash'], $config['model']);
+        //});
     }
 }

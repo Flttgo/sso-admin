@@ -21,7 +21,7 @@ class CallbackController extends Controller
      */
     public function valid()
     {
-        $serialNumber = request('token');
+        $serialNumber = request('sid');
 
         $lock = Cache::lock('callback:valid:'.$serialNumber, 10);
         try {
@@ -37,7 +37,8 @@ class CallbackController extends Controller
 
 
             $credentials = [
-                'user_username' => $serialNumber,
+                'account' => $serialNumber,
+                // 控制自定义驱动的参数
                 'is_callback' => true,
             ];
 

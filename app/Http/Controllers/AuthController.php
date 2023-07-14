@@ -18,7 +18,7 @@ class AuthController extends Controller
     {
         $account = request('account');
         $credentials = [
-            'user_username' => request('account'),
+            'account' => request('account'),
             'password' => request('password')
         ];
         // 根据登录名字判断

@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 use Carbon\Carbon;
-use Str;
 
 trait LoginTrait
 {
@@ -13,7 +12,7 @@ trait LoginTrait
         $user = user();
 
         /** @var \Tymon\JWTAuth\JWTGuard $guard */
-        if ($userToken = $user->user_token_id) {
+        if ($userToken = $user->last_token_id) {
             $guard = auth('api');
             /** @var \Tymon\JWTAuth\Providers\JWT\Lcobucci $lco */
             $lco = app('tymon.jwt.provider.jwt.lcobucci');
@@ -29,23 +28,18 @@ trait LoginTrait
         }
         // 登录之后存入新的token
         $user->update([
-            'user_token_id' => $token
+            'last_token_id' => $token
         ]);
 
         $ttl = auth('api')->factory()->getTTL();
 
         $leeway = config('jwt.leeway');
 
-        $username = $user->user_username;
-        $name = base64_encode($username).'.'.Str::random(12);
 
         return [
             'token' => $token,
             'token_type' => 'bearer',
             'expire_in' => ($ttl * 60) + $leeway,
-            'code' => $name,
-            'username' => $username,
-            'auth_key' => $user->user_auth_key,
             'sso_home' => config('app.sso_home_url')
         ];
     }

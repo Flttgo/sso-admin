@@ -55,11 +55,11 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
 
     // 系统1
-    'risk_url' => env('RISK_URL', 'http://IP'),
+    'test1_url' => env('RISK_URL', 'http://test1.a.com'),
     // 系统2
-    'dmp_url' => env('DMP_URL', 'http://IP'),
+    'test2_url' => env('DMP_URL', 'http://test2.a.com'),
     // 系统3
-    'job_url' => env('JOB_URL', 'http://IP/'),
+    'test3_url' => env('JOB_URL', 'http://test3.a.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -67,7 +67,7 @@ return [
 
     'admin_name' => env('ADMIN_NAME', 'admin'),
 
-    'sso_home_url' => env('SSO_HOME_URL', 'http://IP:8006'),
+    'sso_home_url' => env('SSO_HOME_URL', 'http://localhost:9572'),
 
     /*
     |--------------------------------------------------------------------------
